@@ -1,10 +1,12 @@
 import React from 'react'
-
+import Header from './header'
+import Accordion from './accordion'
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">CHUCK NORRIS</h1>
-    </>
+    <div className='flex flex-col justify-center text-center gap-y-6'>
+      <Header/>
+      <Accordion/>
+    </div>
   )
 }
 
