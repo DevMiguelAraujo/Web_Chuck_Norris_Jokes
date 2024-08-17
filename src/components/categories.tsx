@@ -1,4 +1,5 @@
 import React from "react";
+import CategoriesLoading from "./categoriesLoading";
 
 function Categories() {
   const [listCategories, setListCategories] = React.useState([]);
@@ -16,14 +17,14 @@ function Categories() {
         {listCategories[0]
           ? listCategories.map((item, index) => (
               <span
-                className="py-1 px-0 bg-amber-200 flex-1 min-w-24 max-w-28 uppercase font-semibold text-lg text-center transition-all duration-200
-                hover:px-1 hover:bg-amber-500 hover:cursor-pointer"
+                className="py-1 bg-amber-200 flex-1 min-w-24 max-w-28 uppercase font-semibold text-lg text-center transition-all duration-300
+                hover:bg-amber-500 hover:cursor-pointer"
                 key={index}
               >
                 {item}
               </span>
             ))
-          : "carregando..."}
+          : <CategoriesLoading/>}
       </div>
     </div>
   );
