@@ -16,7 +16,7 @@ function Accordion({ title, list, keyProp }: AccordionProps) {
     <div>
       <div className="flex justify-between">
         <h2
-          className="text-2xl font-semibold border-b-2 border-solid border-amber-500 cursor-pointer"
+          className="title border-b-2 border-solid border-amber-500 cursor-pointer"
           onClick={() => setVisible(!visible)}
         >
           {title}
@@ -35,7 +35,7 @@ function Accordion({ title, list, keyProp }: AccordionProps) {
       <ul
         className={`${
           visible ? variantStyles.open : variantStyles.closed
-        } transition-all duration-300 px-2 flex flex-col gap-2 overflow-hidden text-start bg-amber-200`}
+        } transition-all duration-300 px-2 flex flex-col gap-2 overflow-hidden text-start bg_main`}
       >
         {list.map((item, index) => (
           <li className="font-semibold text-lg" key={`${keyProp}+${index}`}>

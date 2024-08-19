@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function ArrowSVG(props: React.SVGProps<SVGSVGElement>){
   return (
     <svg

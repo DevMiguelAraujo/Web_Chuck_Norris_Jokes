@@ -12,19 +12,22 @@ function Categories() {
 
   return (
     <div>
-      <h2 className="font-semibold text-2xl mb-2">Lista de Categorias:</h2>
+      <h2 className="title mb-2">Lista de Categorias:</h2>
       <div className="flex flex-wrap gap-3 justify-center">
-        {listCategories[0]
-          ? listCategories.map((item, index) => (
-              <span
-                className="py-1 bg-amber-200 flex-1 min-w-24 max-w-28 uppercase font-semibold text-lg text-center transition-all duration-300
+        {listCategories[0] ? (
+          listCategories.map((item, index) => (
+            <span
+              className="
+                py-1 bg_main flex-1 min-w-24 max-w-28 uppercase font-semibold text-lg text-center transition-all duration-300
                 hover:bg-amber-500 hover:cursor-pointer"
-                key={index}
-              >
-                {item}
-              </span>
-            ))
-          : <CategoriesLoading/>}
+              key={index}
+            >
+              {item}
+            </span>
+          ))
+        ) : (
+          <CategoriesLoading />
+        )}
       </div>
     </div>
   );
