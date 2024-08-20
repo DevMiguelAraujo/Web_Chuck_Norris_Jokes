@@ -1,11 +1,12 @@
 import React from "react";
 import CategoriesLoading from "./categoriesLoading";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUrl } from "../main";
+import { useDispatch} from "react-redux";
+import { fetchUrl } from "../store/configureStore";
+
+
 function Categories() {
   const [listCategories, setListCategories] = React.useState([]);
   const dispatch = useDispatch();
-  const estado = useSelector((estado) => estado)
 
   React.useEffect(() => {
     fetch("https://api.chucknorris.io/jokes/categories")
@@ -15,14 +16,14 @@ function Categories() {
 
   return (
     <div>
-      <h2 onClick={() => console.log(estado)} className="title mb-2">Lista de Categorias:</h2>
+      <h2 className="title mb-2">List of Categories:</h2>
       <div className="flex flex-wrap gap-3 justify-center">
         {listCategories[0] ? (
           listCategories.map((item, index) => (
             <span
               onClick={(i) =>
                 dispatch(
-                  fetchUrl(`https://api.chucknorris.io/jokes/random?category=${i.target.innerText.toLowerCase()}`)
+                  fetchUrl(i.target.innerText.toLowerCase())
                 )
               }
               className="
