@@ -38,7 +38,7 @@ function Accordion({ title, list, keyProp }: AccordionProps) {
         } transition-all duration-300 px-2 flex flex-col gap-2 overflow-hidden text-start bg_main`}
       >
         {list.map((item, index) => (
-          <li className="font-semibold text-lg" key={`${keyProp}+${index}`}>
+          <li className="font-semibold text-xl" key={`${keyProp}+${index}`}>
             <p>{item}</p>
           </li>
         ))}

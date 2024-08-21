@@ -1,13 +1,29 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { StateStore } from "../store/configureStore";
+import { fetchUrl } from "../store/configureStore";
 
 function Jokes() {
-  const state = useSelector((state) => state);
-
+  const joke = useSelector(({data}: StateStore) => (data));
+  const selectedCategorie = useSelector(({categorie}: StateStore) => (categorie));
+  const dispatch = useDispatch();
   return (
-    <div className="flex text-center justify-center bg_main w-full">
-      <div className="py-12">
-        <h3 className="title">{state.data || "Chuck Norris will give you his best joke!!!"}</h3>
-      </div>
+    <div className="bg_main py-12 px-2 title">
+      {joke ? (
+        <div className="flex flex-col gap-12 items-center">
+          <h3>{typeof joke === "string" ? joke : "Invalid Data"}</h3>
+          <button
+            onClick={() => {
+              if (typeof selectedCategorie === "string")
+                dispatch(fetchUrl(selectedCategorie));
+            }}
+            className="p-4 rounded-md bg-amber-500"
+          >
+            Generate Again
+          </button>
+        </div>
+      ) : (
+        <h3>Chuck Norris will give you his best joke!!!</h3>
+      )}
     </div>
   );
 }

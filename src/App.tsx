@@ -1,17 +1,16 @@
-import React from "react";
 import Header from "./components/header";
 import Accordion from "./components/accordion";
 import Categories from "./components/categories";
 import Jokes from "./components/jokes";
 function App() {
   const tutorialList = [
-    `Clique em uma categoria para receber uma piada do Chuck Norris.`,
-    `Você pode selecionar a categoria random para uma piada aleatória ou selecionar uma categoria para receber uma piada especifica.`,
-    `Caso deseje ver outra piada da mesma categoria, clique no botão Gerar Novamente.`,
+    'Click on a category to receive a Chuck Norris joke.',
+    'You can select the random category for a random joke or choose a specific category to receive a specific joke.',
+    'If you wanna see another joke from the same category, click the button “Generate Again”.',
   ];
 
   return (
-    <div className="font-mono bg-amber-100">
+    <div className="font-mono">
       <Header />
       <main className="flex flex-col items-center justify-center text-center gap-y-16 max-w-4xl mx-auto">
         <Accordion
