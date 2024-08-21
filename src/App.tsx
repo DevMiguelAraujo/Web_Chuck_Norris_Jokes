@@ -14,7 +14,7 @@ function App() {
       <Header />
       <main className="flex flex-col items-center justify-center text-center gap-y-16 max-w-4xl mx-auto">
         <Accordion
-          title="How it works?"
+          title="How it works?" 
           list={tutorialList}
           keyProp="passoTutorial_"
         />

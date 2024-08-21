@@ -1,15 +1,5 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
-
-.bg_main{
-  background-color: #fde68a;
-}
-.title{
-  font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 
 body{
   background-color:  #fef3c7;

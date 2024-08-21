@@ -7,7 +7,7 @@ function Jokes() {
   const selectedCategorie = useSelector(({categorie}: StateStore) => (categorie));
   const dispatch = useDispatch();
   return (
-    <div className="bg_main py-12 px-2 title">
+    <div className="bg-amber-200 py-12 px-2 font-semibold text-2xl mb-20">
       {joke ? (
         <div className="flex flex-col gap-12 items-center">
           <h3>{typeof joke === "string" ? joke : "Invalid Data"}</h3>

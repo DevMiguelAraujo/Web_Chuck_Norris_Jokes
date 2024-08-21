@@ -52,7 +52,7 @@ const thunk = (store) => (next) => (action) => {
 };
 
 export function fetchUrl(categorie?: string) {
-  return async (dispatch: ({type, payload}: {type: string, payload: string | unknown})=>void) => {
+  return async (dispatch: ({type, payload}: {type: string, payload: string | unknown} )=>void) => {
     try {
       dispatch({ type: loading, payload: categorie});
       const data = await fetch(`https://api.chucknorris.io/jokes/random?${categorie !== 'random'? 'category='+categorie : ''}`).then((r) => r.json());
