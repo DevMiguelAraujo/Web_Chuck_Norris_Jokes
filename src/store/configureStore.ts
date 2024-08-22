@@ -42,7 +42,7 @@ function reducer(state:StateStore = initialStore, { type, payload }: {type: stri
         ...state,
         loading: false,
         complete: false,
-        data: 'Sorry, server with problems, try again later.',
+        data: 'Sorry, our server are with problems, our team is working to fix that, try again later.',
       };
     default:
       return { ...state};
@@ -50,7 +50,6 @@ function reducer(state:StateStore = initialStore, { type, payload }: {type: stri
 }
 
 const thunk = (store: {dispatch: (arg: Action)=> void, getState: ()=> StateStore}) => (next: (arg: Action)=>void) => (action: unknown) => {
-  console.log(action)
   if (typeof action === "function") {
     return action(store.dispatch);
   }

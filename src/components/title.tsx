@@ -17,5 +17,5 @@ function Title({ className, children, onClick }: TitleType) {
       <h1 onClick={onClick}>{children}</h1>
     </div>
   );
-}
+} 
 export default Title;
