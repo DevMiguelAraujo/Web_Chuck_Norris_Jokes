@@ -6,6 +6,11 @@ export type StateStore = {
   categorie: string | null
 }
 
+type Action ={
+  type?: string,
+  payload?: unknown
+}
+
 const initialStore:StateStore = {
   loading: false,
   complete: false,
@@ -44,15 +49,19 @@ function reducer(state:StateStore = initialStore, { type, payload }: {type: stri
   }
 }
 
-const thunk = (store) => (next) => (action) => {
+const thunk = (store: {dispatch: (arg: Action)=> void, getState: ()=> StateStore}) => (next: (arg: Action)=>void) => (action: unknown) => {
+  console.log(action)
   if (typeof action === "function") {
     return action(store.dispatch);
   }
+  // @ts-expect-error: Esperado erro porque a função não compreende o argumento passado pela tipagem acima.
   return next(action);
 };
 
+type FunctionDispatch = <UnknownAction>(action: UnknownAction, ...extraArgs: unknown[]) => UnknownAction;
+
 export function fetchUrl(categorie?: string) {
-  return async (dispatch: ({type, payload}: {type: string, payload: string | unknown} )=>void) => {
+  return async (dispatch: FunctionDispatch) => {
     try {
       dispatch({ type: loading, payload: categorie});
       const data = await fetch(`https://api.chucknorris.io/jokes/random?${categorie !== 'random'? 'category='+categorie : ''}`).then((r) => r.json());
