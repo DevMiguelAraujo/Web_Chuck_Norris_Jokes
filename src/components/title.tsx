@@ -10,7 +10,7 @@ function Title({ className, children, onClick }: TitleType) {
   return (
     <div
       className={
-        "font-semibold text-2xl border-b-2 border-solid border-amber-500 " +
+        "font-semibold text-2xl border-b-2 border-solid border-amber-500" + " " +
         className
       }
     >

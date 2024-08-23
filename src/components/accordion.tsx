@@ -16,25 +16,18 @@ function Accordion({ title, list, keyProp }: AccordionProps) {
           {title}
         </Title>
         <div
-          className={`min-w-7 transition-all duration-500 ${
-            visible ? "rotate-180" : "rotate-0"
-          }`}
+          className={`min-w-7 transition-all duration-500 cursor-pointer
+          ${visible ? "rotate-180" : "rotate-0"}`}
         >
-          <ArrowSVG
-            className="cursor-pointer"
-            onClick={() => setVisible(!visible)}
-          />
+          <ArrowSVG onClick={() => setVisible(!visible)} />
         </div>
       </div>
       <div
-        className={`transition-all duration-500 overflow-hidden text-start bg-amber-200 ${
-          visible ? "max-h-80" : "max-h-0"
-        }`}
+        className={`transition-all duration-500 text-start overflow-y-hidden bg-amber-200 
+        ${visible ? "max-h-96" : "max-h-0"}`}
       >
         <ul
-          className={`flex flex-col p-4 transition-all duration-500 ${
-            visible ? "gap-6" : "gap-0"
-          }`}
+          className={`flex flex-col transition-all duration-500 p-2 sm:py-4 md:py-6 gap-6 sm:gap-8 md:gap-12`}
         >
           {list.map((item) => (
             <li className="font-semibold text-xl" key={`${keyProp}+${item}`}>
